@@ -24,12 +24,16 @@ import com.hsttcoder.dscatalog.services.exceptions.ResourceNotFoundException;
 @Service
 public class ProductService {
 
-	@Autowired
-	private ProductRepository repository;
+	private final ProductRepository repository;
+
+	private final CategoryRepository categoryRepository;
 
 	@Autowired
-	private CategoryRepository categoryRepository;
-	
+	public ProductService(ProductRepository repository, CategoryRepository categoryRepository) {
+		this.repository = repository;
+		this.categoryRepository = categoryRepository;
+	}
+
 	@Transactional(readOnly = true)
 	public Page<ProductDTO> findAllPaged(Pageable pageable) {
 		Page<Product> list = repository.findAll(pageable);
