@@ -39,11 +39,11 @@ public class Role implements Serializable {
 		this.id = id;
 	}
 
-	public String getAutority() {
+	public String getAuthority() {
 		return authority;
 	}
 
-	public void setAutority(String authority) {
+	public void setAuthority(String authority) {
 		this.authority = authority;
 	}
 
